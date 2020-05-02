@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <main>
+        <section class="section-weather">
+            <div class="wapper-weather">
+                <img class="img-weather" />
+                <div class="city">Seoul</div>
+                <div class="temperature">33</div>
+            </div>
+        </section>
+        <section>
+            <div class="wapper-time">
+                <div class="date"></div>
+                <h1 class="time"></h1>
+            </div>
+            <div class="wapper-name">
+                <form id="form-name">
+                    <input type="text" id="input-name" placeholder="What's your name">
+                </form>
+                <h1 class="name"></h1>
+            </div>
+            <div class="wapper-todo">
+                <div>
+                    <form id="action-add-todo">
+                        <input id="input-todo" type="text" placeholder="Write Todo"/>
+                    <form>
+                </div>
+                <div>
+                    <ul id="pending-list"></ul>
+                </div>
+                <div style="display:none;">
+                    <h1>Finished</h1>
+                    <ul id="finished-list"></ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- <script src="./dist/bundle.js"></script> -->
+<script src="bundle.js"></script></body>
+</html>
