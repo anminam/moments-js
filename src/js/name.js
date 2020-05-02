@@ -26,6 +26,9 @@ const onSubmitForm = (e) => {
 export const init = () => {
     elForm.addEventListener('submit', onSubmitForm);
     elName.addEventListener('click', resetName);
+
+    resetName();
+    
     const initName = load(KEY_NAME);
     if (initName && initName !== 'null') {
         inputName(initName);
