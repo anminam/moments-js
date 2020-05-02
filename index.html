@@ -7,31 +7,39 @@
 </head>
 <body>
     <main>
-        <div class="wapper-time">
-            <div class="time"></div>
-        </div>
-        <div class="wapper-name">
-            <form id="form-name">
-                <input type="text" id="input-name" placeholder="What's your name">
-            </form>
-            <div class="name"></div>
-        </div>
-        <div class="wapper-todo">
-            <div>
-                <form id="action-add-todo">
-                    <h1>TAKES</h1>
-                    <input id="input-todo" type="text"/>
-                <form>
+        <section class="section-weather">
+            <div class="wapper-weather">
+                <img class="img-weather" />
+                <div class="city">Seoul</div>
+                <div class="temperature">33</div>
             </div>
-            <div>
-                <h1>Pending</h1>
-                <ul id="pending-list"></ul>
+        </section>
+        <section>
+            <div class="wapper-time">
+                <div class="date"></div>
+                <h1 class="time"></h1>
             </div>
-            <div>
-                <h1>Finished</h1>
-                <ul id="finished-list"></ul>
+            <div class="wapper-name">
+                <form id="form-name">
+                    <input type="text" id="input-name" placeholder="What's your name">
+                </form>
+                <h1 class="name"></h1>
             </div>
-        </div>
+            <div class="wapper-todo">
+                <div>
+                    <form id="action-add-todo">
+                        <input id="input-todo" type="text" placeholder="Write Todo"/>
+                    <form>
+                </div>
+                <div>
+                    <ul id="pending-list"></ul>
+                </div>
+                <div style="display:none;">
+                    <h1>Finished</h1>
+                    <ul id="finished-list"></ul>
+                </div>
+            </div>
+        </section>
 
     </main>
     <!-- <script src="./dist/bundle.js"></script> -->

@@ -1,4 +1,5 @@
 const elTime = document.querySelector('.time');
+const elDate = document.querySelector('.date');
 
 const getFormatTime = (time) => {
     
@@ -16,11 +17,16 @@ const getNowTime = () => {
     
     const date = `${YYYY}-${MM < 10? `0${MM}` : MM }-${DD < 10? `0${DD}` : DD }`;
     const time = `${hh < 10? `0${hh}` : hh }:${mm < 10? `0${mm}` : mm }:${ss < 10? `0${ss}` : ss }`;
-    return date +' '+ time;
+    return {
+        date,
+        time
+    }
 }
 
 export const init = () => {
     setInterval(() => {
-        elTime.innerText = getNowTime();
+        const {date, time} = getNowTime();
+        elTime.innerText = time
+        elDate.innerText = date
     }, 1000);
 }

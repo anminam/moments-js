@@ -1,0 +1,126 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color:white;
+}
+body {
+    
+    /* background:lightblue url("./assets/images/img1.jpg") center center cover no-repeat fixed; */
+    /* background-image:url("./assets/images/img1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    opacity: 0.8; */
+    background-color: black;
+}
+body::after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image:url("./assets/images/img1.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity : 0.7;
+    z-index: -1;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+.date {
+    font-weight: bold;
+}
+.name {
+    cursor: pointer;
+    border-bottom: 1px dashed;
+}
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+section {
+    text-align: center;
+}
+section > div {
+    /* width: 100%; */
+    margin: 10px 0;
+}
+#pending-list {
+    text-align: left;
+    max-width: 320px;
+    font-size: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+input {
+    font-size: 1rem;
+    margin: 10px;
+    border: 0;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.8);
+    padding: 8px;
+}
+#input-name {
+}
+.name::after {
+    content: '! GO!';
+}
+#input-todo {
+}
+.section-weather {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+.temperature {
+    font-weight: bold;
+}
+.temperature::after {
+    content: "°C";
+}
+.img-weather {
+    width: 50px;
+    height: 50px;
+}
+.btn-icon {
+    border: 0;
+    padding:0;
+    margin:0;
+    font-size: 1.5rem;
+    background-color:transparent;
+}
+.b1::after {
+    background-image: url("./assets/images/img1.jpg");
+}
+.b2::after {
+    background-image: url("./assets/images/img2.jpg");
+}
+.b3::after {
+    background-image: url("./assets/images/img3.jpg");
+}
+.b4::after {
+    background-image: url("./assets/images/img4.jpg");
+}
+.b5::after {
+    background-image: url("./assets/images/img5.jpg");
+}
+
+@media screen and (max-width: 360px) {
+    body {
+        min-width: 360px;
+    }
+}

@@ -23,8 +23,8 @@ export const init = () => {
   // elform add Event
   elForm.addEventListener("submit", e => {
     e.preventDefault();
+    
     const todoStr = elInputTodo.value;
-
     elInputTodo.value = "";
     addTodo(todoStr);
     updatePending();
@@ -88,15 +88,16 @@ const updatePending = () => {
   todoList.forEach((item, i) => {
     el += `<li>
       ${item.text}
-      <button type="button" class="delete" data-method="delete" data-id=${
+      <button type="button" class="delete btn-icon" data-method="delete" data-id=${
         item.id
-      }>🗑</button>
-      <button type="button" class="finish" data-method="finish" data-id=${
-        item.id
-      }>👌</button>
+      }>🚽</button>
     </li>`;
   });
   elPending.innerHTML = el;
+
+  // <button type="button" class="finish" data-method="finish" data-id=${
+  //   item.id
+  // }>👌</button>
 };
 
 const updateFinsihed = () => {
