@@ -1,12 +1,16 @@
+import { save, load } from "./localStorage";
+
 const elInputName = document.getElementById('input-name');
 const elName = document.querySelector('.name');
 const elForm = document.getElementById('form-name');
+const KEY_NAME = 'KEY_NAME';
 
-const inputName = () => {
-    const {value} = elInputName;
-    elName.innerText = value;
+const inputName = (name) => {
+    elName.innerText = name;
     elForm.style.display = 'none';
     elName.style.display = 'block';
+
+    save(KEY_NAME, name);
 }
 
 const resetName = () => {
@@ -15,11 +19,15 @@ const resetName = () => {
 }
 const onSubmitForm = (e) => {
     e.preventDefault();
-    inputName();
+    const {value} = elInputName;
+    inputName(value);
 };
 
 export const init = () => {
     elForm.addEventListener('submit', onSubmitForm);
     elName.addEventListener('click', resetName);
-
+    const initName = load(KEY_NAME);
+    if (initName && initName !== 'null') {
+        inputName(initName);
+    }
 }

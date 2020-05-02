@@ -1,3 +1,5 @@
+import { save, load } from "./localStorage";
+
 const elForm = document.getElementById("action-add-todo");
 const elPending = document.getElementById("pending-list");
 const elFinished = document.getElementById("finished-list");
@@ -114,11 +116,11 @@ const updateFinsihed = () => {
 };
 
 const saveList = (key, list) => {
-  localStorage.setItem(key, JSON.stringify(list));
+  save(key, JSON.stringify(list));
 };
 
 const loadList = key => {
-  return JSON.parse(localStorage.getItem(key));
+  return JSON.parse(load(key));
 };
 
 // https://codesandbox.io/s/empty-blueprint-rrk2g
