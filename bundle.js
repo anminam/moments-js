@@ -186,11 +186,15 @@ const resetName = () => {
 const onSubmitForm = (e) => {
     e.preventDefault();
     const {value} = elInputName;
+    if (!value) {
+        return;
+    }
     inputName(value);
 };
 
 const init = () => {
     elForm.addEventListener('submit', onSubmitForm);
+    elInputName.addEventListener('blur', onSubmitForm);
     elName.addEventListener('click', resetName);
 
     resetName();
@@ -247,17 +251,22 @@ const init = () => {
   updateFinsihed();
 
   // elform add Event
-  elForm.addEventListener("submit", e => {
-    e.preventDefault();
-    
-    const todoStr = elInputTodo.value;
-    elInputTodo.value = "";
-    addTodo(todoStr);
-    updatePending();
-  });
+  elForm.addEventListener("submit", onAddTodo);
 
   elPending.addEventListener("click", onClickBtnEvent);
   elFinished.addEventListener("click", onClickBtnEvent);
+  elInputTodo.addEventListener("blur", onAddTodo);
+};
+const onAddTodo = e => {
+  e.preventDefault();
+  
+  const todoStr = elInputTodo.value;
+  if (!todoStr) {
+    return;
+  }
+  elInputTodo.value = "";
+  addTodo(todoStr);
+  updatePending();
 };
 
 const addTodo = todo => {
@@ -818,7 +827,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
 // Module
-exports.push([module.i, "html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    color:white;\r\n}\r\nbody {\r\n    font-family: 'Nanum Gothic', sans-serif;\r\n    font-family: 'Noto Sans TC', sans-serif;\r\n    \r\n    /* background:lightblue url(\"./assets/images/img1.jpg\") center center cover no-repeat fixed; */\r\n    /* background-image:url(\"./assets/images/img1.jpg\");\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-attachment: fixed;\r\n    background-size: cover;\r\n    background-color: #464646;\r\n    opacity: 0.8; */\r\n    background-color: black;\r\n}\r\nbody::after {\r\n    content : \"\";\r\n    display: block;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background-image:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-attachment: fixed;\r\n    background-size: cover;\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity : 0.7;\r\n    z-index: -1;\r\n}\r\n\r\nh1 {\r\n    margin: 0;\r\n    font-size: 3.5rem;\r\n}\r\nh2{\r\n    margin: 0;\r\n    font-size: 2.8rem;\r\n}\r\n.date {\r\n    font-weight: bold;\r\n}\r\n.name {\r\n    cursor: pointer;\r\n    border-bottom: 1px dashed;\r\n    box-sizing: border-box;\r\n}\r\nmain {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\nsection {\r\n    text-align: center;\r\n}\r\nsection > div {\r\n    /* width: 100%; */\r\n    margin: 10px 0;\r\n}\r\n#pending-list {\r\n    max-width: 320px;\r\n    max-height: 350px;\r\n    font-size: 1.5rem;\r\n    list-style: none;\r\n    text-align: left;\r\n    padding: 0;\r\n    overflow-y: auto;\r\n}\r\ninput {\r\n    font-size: 1rem;\r\n    margin: 10px;\r\n    border: 0;\r\n    border-radius: 14px;\r\n    background: rgba(255,255,255,0.8);\r\n    padding: 8px;\r\n    opacity: 0.6;\r\n}\r\n#input-name {\r\n}\r\n.name::after {\r\n    content: '! GO!';\r\n}\r\n#input-todo {\r\n}\r\n.section-weather {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    padding: 10px;\r\n}\r\n.temperature {\r\n    font-weight: bold;\r\n}\r\n.temperature::after {\r\n    content: \"°C\";\r\n}\r\n.img-weather {\r\n    width: 50px;\r\n    height: 50px;\r\n    display: block;\r\n}\r\n.btn-icon {\r\n    border: 0;\r\n    padding:0;\r\n    margin:0;\r\n    font-size: 1.5rem;\r\n    background-color:transparent;\r\n}\r\n.b1::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}\r\n.b2::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n}\r\n.b3::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n}\r\n.b4::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n}\r\n.b5::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n}\r\n\r\n@media screen and (max-width: 360px) {\r\n    body {\r\n        min-width: 360px;\r\n    }\r\n}", ""]);
+exports.push([module.i, "html, body {\r\n    width: 100%;\r\n    height: 100%;\r\n    margin: 0;\r\n    color:white;\r\n}\r\nbody {\r\n    font-family: 'Nanum Gothic', sans-serif;\r\n    font-family: 'Noto Sans TC', sans-serif;\r\n    \r\n    /* background:lightblue url(\"./assets/images/img1.jpg\") center center cover no-repeat fixed; */\r\n    /* background-image:url(\"./assets/images/img1.jpg\");\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-attachment: fixed;\r\n    background-size: cover;\r\n    background-color: #464646;\r\n    opacity: 0.8; */\r\n    background-color: black;\r\n}\r\nbody::after {\r\n    content : \"\";\r\n    display: block;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background-image:url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n    background-position: center center;\r\n    background-repeat: no-repeat;\r\n    background-attachment: fixed;\r\n    background-size: cover;\r\n    width: 100%;\r\n    height: 100%;\r\n    opacity : 0.7;\r\n    z-index: -1;\r\n}\r\n\r\nh1 {\r\n    margin: 0;\r\n    font-size: 3.5rem;\r\n}\r\nh2{\r\n    margin: 0;\r\n    font-size: 2.8rem;\r\n}\r\n.date {\r\n    font-weight: bold;\r\n}\r\n.name {\r\n    cursor: pointer;\r\n    border-bottom: 1px dashed;\r\n    box-sizing: border-box;\r\n}\r\nmain {\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\nsection {\r\n    text-align: center;\r\n}\r\nsection > div {\r\n    /* width: 100%; */\r\n    margin: 10px 0;\r\n}\r\n#pending-list {\r\n    max-width: 320px;\r\n    max-height: 350px;\r\n    font-size: 1.5rem;\r\n    list-style: none;\r\n    text-align: left;\r\n    padding: 0;\r\n    overflow-y: auto;\r\n}\r\nbutton.delete {\r\n    cursor: pointer;\r\n}\r\ninput {\r\n    font-size: 1rem;\r\n    margin: 10px;\r\n    border: 0;\r\n    border-radius: 14px;\r\n    background: rgba(255,255,255,0.8);\r\n    padding: 8px;\r\n    opacity: 0.6;\r\n}\r\n#input-name {\r\n}\r\n.name::after {\r\n    content: '! GO!';\r\n}\r\n#input-todo {\r\n}\r\n.section-weather {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    padding: 10px;\r\n}\r\n.temperature {\r\n    font-weight: bold;\r\n}\r\n.temperature::after {\r\n    content: \"°C\";\r\n}\r\n.img-weather {\r\n    width: 50px;\r\n    height: 50px;\r\n    display: block;\r\n}\r\n.btn-icon {\r\n    border: 0;\r\n    padding:0;\r\n    margin:0;\r\n    font-size: 1.5rem;\r\n    background-color:transparent;\r\n}\r\n.b1::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\r\n}\r\n.b2::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\r\n}\r\n.b3::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\r\n}\r\n.b4::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_3___ + ");\r\n}\r\n.b5::after {\r\n    background-image: url(" + ___CSS_LOADER_URL_REPLACEMENT_4___ + ");\r\n}\r\n\r\n@media screen and (max-width: 360px) {\r\n    body {\r\n        min-width: 360px;\r\n    }\r\n}", ""]);
 // Exports
 module.exports = exports;
 
