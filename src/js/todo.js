@@ -90,7 +90,7 @@ const updatePending = () => {
       ${item.text}
       <button type="button" class="delete btn-icon" data-method="delete" data-id=${
         item.id
-      }>🚽</button>
+      }>👏</button>
     </li>`;
   });
   elPending.innerHTML = el;

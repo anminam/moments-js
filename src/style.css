@@ -5,6 +5,8 @@ html, body {
     color:white;
 }
 body {
+    font-family: 'Nanum Gothic', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
     
     /* background:lightblue url("./assets/images/img1.jpg") center center cover no-repeat fixed; */
     /* background-image:url("./assets/images/img1.jpg");
@@ -35,7 +37,11 @@ body::after {
 
 h1 {
     margin: 0;
-    font-size: 3rem;
+    font-size: 3.5rem;
+}
+h2{
+    margin: 0;
+    font-size: 2.8rem;
 }
 .date {
     font-weight: bold;
@@ -43,6 +49,7 @@ h1 {
 .name {
     cursor: pointer;
     border-bottom: 1px dashed;
+    box-sizing: border-box;
 }
 main {
     display: flex;
@@ -59,11 +66,13 @@ section > div {
     margin: 10px 0;
 }
 #pending-list {
-    text-align: left;
     max-width: 320px;
+    max-height: 350px;
     font-size: 1.5rem;
     list-style: none;
+    text-align: left;
     padding: 0;
+    overflow-y: auto;
 }
 input {
     font-size: 1rem;
@@ -96,6 +105,7 @@ input {
 .img-weather {
     width: 50px;
     height: 50px;
+    display: block;
 }
 .btn-icon {
     border: 0;
