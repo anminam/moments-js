@@ -21,17 +21,22 @@ export const init = () => {
   updateFinsihed();
 
   // elform add Event
-  elForm.addEventListener("submit", e => {
-    e.preventDefault();
-    
-    const todoStr = elInputTodo.value;
-    elInputTodo.value = "";
-    addTodo(todoStr);
-    updatePending();
-  });
+  elForm.addEventListener("submit", onAddTodo);
 
   elPending.addEventListener("click", onClickBtnEvent);
   elFinished.addEventListener("click", onClickBtnEvent);
+  elInputTodo.addEventListener("blur", onAddTodo);
+};
+const onAddTodo = e => {
+  e.preventDefault();
+  
+  const todoStr = elInputTodo.value;
+  if (!todoStr) {
+    return;
+  }
+  elInputTodo.value = "";
+  addTodo(todoStr);
+  updatePending();
 };
 
 const addTodo = todo => {

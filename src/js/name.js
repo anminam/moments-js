@@ -20,11 +20,15 @@ const resetName = () => {
 const onSubmitForm = (e) => {
     e.preventDefault();
     const {value} = elInputName;
+    if (!value) {
+        return;
+    }
     inputName(value);
 };
 
 export const init = () => {
     elForm.addEventListener('submit', onSubmitForm);
+    elInputName.addEventListener('blur', onSubmitForm);
     elName.addEventListener('click', resetName);
 
     resetName();
